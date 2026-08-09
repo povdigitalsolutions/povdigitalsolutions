@@ -22,6 +22,7 @@ import { DigitalEcosystem } from '@/components/site/digital-ecosystem';
 import { ServicesEcosystem } from '@/components/site/services-ecosystem';
 import { ProcessFlow } from '@/components/site/process-flow';
 import { WebsiteShowcase } from '@/components/site/website-showcase';
+import { MobileScrollCards, ScrollCard } from '@/components/site/mobile-scroll-cards';
 import { getIcon } from '@/lib/icon-map';
 import {
   services,
@@ -32,9 +33,16 @@ import {
   pricingPlans,
   faqs,
 } from '@/data/site-data';
-import { whatsappLink } from '@/lib/site-config';
 
 export default function HomePage() {
+  const colorMap: Record<number, string> = {
+    0: 'blue',
+    1: 'copper',
+    2: 'sky',
+    3: 'emerald',
+    4: 'violet',
+  };
+
   return (
     <>
       {/* === FULL-SCREEN HERO === */}
@@ -71,7 +79,7 @@ export default function HomePage() {
             <Button
               asChild
               size="lg"
-              className="btn-shine bg-brand-gradient shadow-lg shadow-brand-dark/40 hover:shadow-xl hover:shadow-brand/30 hover:scale-[1.03] transition-all"
+              className="btn-shine bg-gradient-to-r from-brand to-copper-dark shadow-lg shadow-brand-dark/40 hover:shadow-xl hover:shadow-brand/30 hover:scale-[1.03] transition-all"
             >
               <Link href="/contact">
                 Get a Free Consultation
@@ -101,7 +109,23 @@ export default function HomePage() {
       {/* === TRUST INDICATORS — Dark navy section === */}
       <section className="border-y border-white/10 bg-gradient-to-br from-navy via-navy-light to-brand-darker/40 py-8">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <StaggerGroup className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5" stagger={0.08}>
+          <MobileScrollCards className="hidden md:flex">
+            {trustIndicators.map((item, idx) => {
+              const Icon = getIcon(item.icon);
+              return (
+                <ScrollCard key={item.label} colorClass={colorMap[idx % 5] || 'blue'} delay={idx}>
+                  <div className="flex items-center justify-center gap-2.5 text-center group h-full">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-copper/20 transition-all group-hover:bg-copper-gradient group-hover:shadow-lg group-hover:shadow-copper/30">
+                      <Icon className="h-5 w-5 text-copper-light transition-colors group-hover:text-white" />
+                    </div>
+                    <span className="text-sm font-semibold text-ink">{item.label}</span>
+                  </div>
+                </ScrollCard>
+              );
+            })}
+          </MobileScrollCards>
+
+          <StaggerGroup className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5 md:hidden" stagger={0.08}>
             {trustIndicators.map((item) => {
               const Icon = getIcon(item.icon);
               return (
@@ -110,7 +134,7 @@ export default function HomePage() {
                     <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-copper/20 transition-all group-hover:bg-copper-gradient group-hover:shadow-lg group-hover:shadow-copper/30">
                       <Icon className="h-5 w-5 text-copper-light transition-colors group-hover:text-white" />
                     </div>
-                    <span className="text-sm font-semibold text-white/90">{item.label}</span>
+                    <span className="text-sm font-semibold text-ink">{item.label}</span>
                   </div>
                 </StaggerItem>
               );
@@ -157,8 +181,31 @@ export default function HomePage() {
             </p>
           </div>
 
-          {/* Problem statements */}
-          <StaggerGroup className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3" stagger={0.08}>
+          {/* Problem statements - Mobile scroll, Desktop grid */}
+          <MobileScrollCards className="mt-12 md:hidden">
+            {[
+              'Customers cannot easily find your business online',
+              'Information is scattered across WhatsApp and emails',
+              'Appointments are managed manually on paper',
+              'Customers repeatedly ask the same questions',
+              'Inventory is difficult to track',
+              'Business records are maintained manually',
+              'No centralized dashboard for operations',
+              'Difficult to manage and scale operations',
+              "Customers don't know your latest products/services",
+            ].map((problem, i) => (
+              <ScrollCard key={i} colorClass={colorMap[i % 5] || 'blue'} delay={i}>
+                <div className="flex items-start gap-3 h-full">
+                  <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-red-500/20">
+                    <X className="h-3 w-3 text-red-400" />
+                  </div>
+                  <p className="text-sm text-ink font-medium">{problem}</p>
+                </div>
+              </ScrollCard>
+            ))}
+          </MobileScrollCards>
+
+          <StaggerGroup className="mt-12 hidden md:grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3" stagger={0.08}>
             {[
               'Customers cannot easily find your business online',
               'Information is scattered across WhatsApp and emails',
@@ -247,7 +294,26 @@ export default function HomePage() {
             title="Why Choose POV?"
             description="We focus on what actually helps your business — not on selling you things you don't need."
           />
-          <StaggerGroup className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3" stagger={0.1}>
+          <MobileScrollCards className="mt-12 md:hidden">
+            {whyChoose.map((item, idx) => {
+              const Icon = getIcon(item.icon);
+              return (
+                <ScrollCard key={item.title} colorClass={colorMap[idx % 5] || 'blue'} delay={idx}>
+                  <div className="flex flex-col gap-4 h-full">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-brand/10 to-copper/10 transition-all">
+                      <Icon className="h-6 w-6 text-brand" />
+                    </div>
+                    <div>
+                      <h3 className="font-display text-lg font-semibold text-ink">{item.title}</h3>
+                      <p className="mt-2 text-sm text-muted-foreground">{item.description}</p>
+                    </div>
+                  </div>
+                </ScrollCard>
+              );
+            })}
+          </MobileScrollCards>
+
+          <StaggerGroup className="mt-12 hidden md:grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3" stagger={0.1}>
             {whyChoose.map((item) => {
               const Icon = getIcon(item.icon);
               return (
@@ -256,8 +322,8 @@ export default function HomePage() {
                     {/* Animated gradient border on hover */}
                     <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl p-px bg-gradient-to-br from-brand via-copper to-brand pointer-events-none" />
                     <div className="relative flex h-full flex-col gap-4 bg-white rounded-2xl p-6">
-                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand/10 to-copper/10 transition-all group-hover:from-navy-gradient group-hover:to-copper-gradient group-hover:shadow-lg group-hover:shadow-brand/30">
-                        <Icon className="h-6 w-6 text-brand transition-colors group-hover:text-white" />
+                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand/10 to-copper/10 transition-all duration-300 group-hover:from-navy-gradient group-hover:to-copper-gradient group-hover:shadow-lg group-hover:shadow-brand/30">
+                        <Icon className="h-6 w-6 text-brand transition-colors duration-300 group-hover:text-white" />
                       </div>
                       <div>
                         <h3 className="font-display text-lg font-semibold text-ink transition-colors group-hover:text-brand">{item.title}</h3>
@@ -324,7 +390,47 @@ export default function HomePage() {
             description="Final pricing depends on your requirements, complexity and integrations. These ranges give you a clear starting point."
             light
           />
-          <StaggerGroup className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4" stagger={0.1}>
+          <MobileScrollCards className="mt-12 md:hidden">
+            {pricingPlans.map((plan, idx) => (
+              <ScrollCard key={plan.id} colorClass={colorMap[idx % 5] || 'blue'} delay={idx}>
+                <Card
+                  className={
+                    plan.featured
+                      ? 'card-premium relative border-copper ring-2 ring-copper/30 h-full bg-gradient-to-br from-navy/90 to-navy-light/80 text-white'
+                      : 'card-premium h-full bg-gradient-to-br from-navy-light/80 to-brand-darker/60 text-white border-white/10'
+                  }
+                >
+                  <CardHeader>
+                    <CardTitle className="text-lg text-white">{plan.name}</CardTitle>
+                    <CardDescription className="text-white/60">{plan.description}</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="font-display text-2xl font-bold bg-gradient-to-r from-copper-light via-copper to-copper-dark bg-clip-text text-transparent">{plan.price}</p>
+                    <ul className="mt-4 space-y-2">
+                      {plan.features.slice(0, 4).map((feature) => (
+                        <li key={feature} className="flex items-start gap-2 text-xs text-white/70">
+                          <CheckCircle2 className="mt-0.5 h-3 w-3 shrink-0 text-copper-light" />
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                    <Button
+                      asChild
+                      className={`mt-6 w-full transition-all hover:scale-[1.02] ${
+                        plan.featured ? 'bg-copper-gradient btn-shine text-white hover:shadow-lg hover:shadow-copper/40' : 'bg-white/10 text-white hover:bg-white/20'
+                      }`}
+                      variant={plan.featured ? 'default' : 'outline'}
+                      size="sm"
+                    >
+                      <Link href="/contact">{plan.cta}</Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+              </ScrollCard>
+            ))}
+          </MobileScrollCards>
+
+          <StaggerGroup className="mt-12 hidden md:grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4" stagger={0.1}>
             {pricingPlans.map((plan) => (
               <StaggerItem key={plan.id} direction="up">
                 <Card
@@ -336,7 +442,7 @@ export default function HomePage() {
                 >
                   {plan.featured && (
                     <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                      <span className="rounded-full bg-copper-gradient px-4 py-1 text-xs font-semibold text-white shadow-md shadow-copper/40">
+                      <span className="rounded-full bg-gradient-to-r from-copper-light via-copper to-copper-dark px-4 py-1 text-xs font-semibold text-white shadow-md shadow-copper/40">
                         Most Popular
                       </span>
                     </div>
