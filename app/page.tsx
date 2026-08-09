@@ -1,3 +1,6 @@
+'use client';
+
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -32,6 +35,43 @@ import {
 import { whatsappLink } from '@/lib/site-config';
 
 export default function HomePage() {
+
+    const typingTexts = [
+    'Websites',
+    'Booking Systems',
+    'ERP Solutions',
+    'Business Automation',
+  ];
+
+  const [textIndex, setTextIndex] = useState(0);
+  const [displayText, setDisplayText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const currentText = typingTexts[textIndex];
+
+    const speed = isDeleting ? 45 : 85;
+
+    const timer = setTimeout(() => {
+      if (!isDeleting) {
+        setDisplayText(currentText.substring(0, displayText.length + 1));
+
+        if (displayText === currentText) {
+          setTimeout(() => setIsDeleting(true), 1400);
+        }
+      } else {
+        setDisplayText(currentText.substring(0, displayText.length - 1));
+
+        if (displayText === '') {
+          setIsDeleting(false);
+          setTextIndex((prev) => (prev + 1) % typingTexts.length);
+        }
+      }
+    }, speed);
+
+    return () => clearTimeout(timer);
+  }, [displayText, isDeleting, textIndex]);
+
   return (
     <>
       {/* === FULL-SCREEN HERO === */}
@@ -54,13 +94,17 @@ export default function HomePage() {
             Turn Your Local Business Into a{' '}
             <span className="text-gradient-hero">Digital Business.</span>
           </h1>
-          <p
-            className="mt-6 max-w-2xl animate-fade-up text-lg font-medium text-white/70 drop-shadow-[0_2px_12px_rgba(0,0,0,0.75)] sm:text-xl"
-            style={{ animationDelay: '0.2s' }}
-          >
-            We build affordable websites, booking systems, ERP applications and custom
-            digital solutions that help businesses grow, manage and automate their operations.
-          </p>
+          <div
+              className="mt-6 h-10 animate-fade-up flex items-center justify-center"
+              style={{ animationDelay: '0.2s' }}
+            >
+              <p className="text-lg font-semibold text-white/90 sm:text-3xl">
+                <span className="text-copper drop-shadow-[0_2px_8px_rgba(255,255,255,0.50)]">{displayText}</span>
+                <span className="ml-1 inline-block h-9 w-[2px] translate-y-1 animate-pulse bg-copper-light" />
+              </p>
+            </div>
+
+            
           <div
             className="mt-8 flex animate-fade-up flex-col gap-3 sm:flex-row"
             style={{ animationDelay: '0.3s' }}
@@ -68,8 +112,8 @@ export default function HomePage() {
             <Button
               asChild
               size="lg"
-              className="btn-shine bg-brand-gradient shadow-lg shadow-brand-dark/40 hover:shadow-xl hover:shadow-brand/30 hover:scale-[1.03] transition-all"
-            >
+              className="bg-gradient-to-r from-amber-400 via-orange-500 to-orange-800 text-white shadow-lg shadow-orange-500/30 hover:from-amber-300 hover:via-orange-400 hover:to-orange-700 hover:shadow-orange-500/50 hover:scale-[1.02] transition-all"
+              >
               <Link href="/contact">
                 Get a Free Consultation
                 <ArrowRight className="ml-2 h-4 w-4" />

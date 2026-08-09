@@ -59,12 +59,20 @@
   * {
     @apply border-border;
   }
+
+  html {
+    scroll-behavior: smooth;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
   body {
     @apply bg-background text-foreground antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
-  }
-  html {
-    scroll-behavior: smooth;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
   }
 }
 

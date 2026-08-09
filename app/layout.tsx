@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_IN',
-    url: 'https://povdigitalsolutions.com',
+    url: 'https://povdigitalsolutions.vercel.app',
     siteName: siteConfig.name,
     title: `${siteConfig.name} — ${siteConfig.tagline}`,
     description: siteConfig.description,
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   alternates: {
-    canonical: 'https://povdigitalsolutions.com',
+    canonical: 'https://povdigitalsolutions.vercel.app',
   },
 };
 
@@ -61,10 +61,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${display.variable}`}>
-      <body className="font-sans">
+      <body className="w-full overflow-x-hidden">
         <Navbar />
-        <main className="min-h-screen">{children}</main>
+
+        <main>{children}</main>
+
         <Footer />
+
         <WhatsAppButton />
       </body>
     </html>
