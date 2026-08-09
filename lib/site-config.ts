@@ -6,14 +6,14 @@ export const siteConfig = {
   description:
     'POV Digital Solutions builds affordable websites, booking systems, ERP applications and custom digital solutions that help local businesses grow, manage and automate their operations.',
   url: 'https://povdigitalsolutions.com',
-  whatsappNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '919999999999',
-  contactEmail: process.env.CONTACT_EMAIL || 'hello@povdigitalsolutions.com',
-  phone: process.env.NEXT_PUBLIC_PHONE || '+91 99999 99999',
+  whatsappNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '917028223399',
+  contactEmail: process.env.CONTACT_EMAIL || 'povdigitalsolution@gmail.com',
+  phone: process.env.NEXT_PUBLIC_PHONE || '+91 70282 23399',
   location: 'Pune, Maharashtra, India',
   social: {
-    instagram: 'https://instagram.com/povdigitalsolutions',
+    instagram: 'https://www.instagram.com/povdigitalsolutions/',
     linkedin: 'https://linkedin.com/company/povdigitalsolutions',
-    facebook: 'https://facebook.com/povdigitalsolutions',
+    facebook: 'https://www.facebook.com/share/1cQysU4CGJ/',
   },
   nav: [
     { label: 'Home', href: '/' },

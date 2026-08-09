@@ -1,9 +1,10 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetClose } from '@/components/ui/sheet';
 import { Menu, X } from 'lucide-react';
@@ -42,26 +43,24 @@ export function Navbar() {
     >
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 lg:h-20">
         {/* Logo */}
-        <Link href="/" className="group flex items-center gap-3" aria-label={siteConfig.name}>
-          <div className="relative flex h-10 w-10 items-center justify-center rounded-xl bg-navy-gradient shadow-lg shadow-brand-dark/30 transition-transform duration-300 group-hover:scale-105 ring-1 ring-white/10">
-            <span className="font-display text-base font-extrabold text-white">P</span>
-            <div className="absolute -right-0.5 -top-0.5 h-2 w-2 rounded-full bg-copper shadow-sm shadow-copper/50" />
-          </div>
-          <div className="flex flex-col leading-none">
-            <span className={cn(
-              'font-display text-base font-bold transition-colors duration-300',
-              useDarkText ? 'text-ink' : 'text-white'
-            )}>
-              POV Digital
-            </span>
-            <span className={cn(
-              'text-[0.625rem] font-semibold uppercase tracking-wider transition-colors duration-300',
-              useDarkText ? 'text-muted-foreground' : 'text-white/50'
-            )}>
-              Solutions
-            </span>
-          </div>
-        </Link>
+            <Link
+              href="/"
+              className="group relative flex h-16 w-[190px] shrink-0 items-center"
+              aria-label="POV Digital Solutions home"
+            >
+              <div className="relative h-24 w-[190px] -ml-2">
+                <div className="absolute inset-4 rounded-full bg-copper/10 blur-xl opacity-50" />
+
+                <Image
+                  src="/brand/POV_logo-transparent.png"
+                  alt="POV Digital Solutions"
+                  fill
+                  sizes="190px"
+                  className="relative scale-[1.75] object-contain object-left transition-transform duration-500 group-hover:scale-[1.80]"
+                  priority
+                />
+              </div>
+            </Link>
 
         {/* Desktop Nav */}
         <div className="hidden items-center gap-1 lg:flex">
@@ -126,15 +125,17 @@ export function Navbar() {
             <div className="flex h-full flex-col bg-gradient-to-b from-white to-brand-light/30">
               <div className="flex items-center justify-between border-b px-5 py-4">
                 <SheetTitle className="flex items-center gap-3">
-                  <div className="relative flex h-10 w-10 items-center justify-center rounded-xl bg-navy-gradient shadow-md">
-                    <span className="font-display text-base font-extrabold text-white">P</span>
-                    <div className="absolute -right-0.5 -top-0.5 h-2 w-2 rounded-full bg-copper" />
-                  </div>
-                  <div className="flex flex-col leading-none">
-                    <span className="font-display text-base font-bold">POV Digital</span>
-                    <span className="text-[0.625rem] font-semibold uppercase tracking-wider text-muted-foreground">
-                      Solutions
-                    </span>
+                  <div className="relative h-12 w-[150px]">
+                    <div className="relative h-12 w-[150px]"> 
+                      <Image
+                        src="/brand/POV_logo_transparent.png"
+                        alt="POV Digital Solutions"
+                        fill
+                        sizes="150px"
+                        className="object-contain"
+                        priority
+                      />
+                    </div>
                   </div>
                 </SheetTitle>
                 <SheetClose asChild>
