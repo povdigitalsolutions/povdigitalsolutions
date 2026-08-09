@@ -28,7 +28,7 @@ export function Navbar() {
   }, [pathname]);
 
   const isHome = pathname === '/';
-  const useDarkText = scrolled || !isHome;
+  const useDarkText = scrolled;
 
   return (
     <header

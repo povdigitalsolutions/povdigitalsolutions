@@ -253,26 +253,38 @@ export const pricingPlans: PricingPlan[] = [
 ];
 
 export const teamMembers: TeamMember[] = [
+ 
   {
-    name: 'Co-Founder One',
-    role: 'Founder & Lead Developer',
-    description:
-      'Leads development and architecture for websites, ERP systems and custom applications.',
-    initials: 'CF',
-  },
-  {
-    name: 'Co-Founder Two',
-    role: 'Co-Founder & Solutions Architect',
+    name: 'Vedant Giri',
+    role: 'CEO & Solutions Architect',
     description:
       'Works directly with business owners to understand requirements and design the right digital solution.',
     initials: 'CF',
+    image: 'team/vedant.jpeg',
+    linkedin: 'https://www.linkedin.com/in/vedant-giri-5655433b4/',
+    instagram: 'https://www.instagram.com/vedant_giri_99/',
   },
   {
-    name: 'Co-Founder Three',
-    role: 'Co-Founder & Business Strategist',
+    name: 'Parth Bhosale',
+    role: 'CTO & Lead Developer',
+    description:
+      'Leads development and architecture for websites, ERP systems and custom applications.',
+    initials: 'CF',
+    image: 'team/parth.png',
+    linkedin: 'https://www.linkedin.com/in/parth-bhosale-95027632a/',
+    instagram: 'https://www.instagram.com/itz_parthbhosale007/',
+
+  },
+  
+  {
+    name: 'Omkar Deshmukh',
+    role: 'CFO & Business Strategist',
     description:
       'Focuses on business growth, client relationships and making technology accessible to local businesses.',
     initials: 'CF',
+    image: 'team/omkar.jpeg',
+    linkedin: 'https://www.linkedin.com/in/omkar-deshmukh-86b078386/',
+    instagram: 'https://www.instagram.com/i_omkar_1528/',
   },
 ];
 

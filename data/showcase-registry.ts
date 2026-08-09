@@ -27,9 +27,9 @@ export const showcaseTemplates: ShowcaseTemplate[] = [
     category: 'Healthcare',
     description:
       'A professional website for hospitals and clinics with departments, doctors, services and appointment booking.',
-    thumbnail: '/showcase/hospital/thumbnail.jpg',
-    url: '/showcase/hospital/',
-    status: 'coming-soon',
+    thumbnail: '/showcase/hospital.jpg',
+    url: 'https://advocate-demo-flow.base44.app/',
+    status: 'published',
     version: '1.0',
     tags: ['healthcare', 'appointment booking', 'doctors'],
     features: [
@@ -47,7 +47,7 @@ export const showcaseTemplates: ShowcaseTemplate[] = [
     category: 'Furniture & Interior',
     description:
       'A premium product showcase website for furniture stores and interior businesses.',
-    thumbnail: '/showcase/furniture/thumbnail.jpg',
+    thumbnail: '/showcase/furniture.jpg',
     url: '/showcase/furniture/',
     status: 'coming-soon',
     version: '1.0',
@@ -67,9 +67,9 @@ export const showcaseTemplates: ShowcaseTemplate[] = [
     category: 'Legal Services',
     description:
       'A professional website for advocates with practice areas, experience and consultation requests.',
-    thumbnail: '/showcase/advocate/thumbnail.jpg',
-    url: '/showcase/advocate/',
-    status: 'coming-soon',
+    thumbnail: '/showcase/advocate.jpg',
+    url: 'https://advocate-impress-showcase.lovable.app',
+    status: 'published',
     version: '1.0',
     tags: ['legal', 'consultation', 'professional'],
     features: [
@@ -87,7 +87,7 @@ export const showcaseTemplates: ShowcaseTemplate[] = [
     category: 'Automotive',
     description:
       'A dynamic website for car accessory shops with products, services and project galleries.',
-    thumbnail: '/showcase/car-accessories/thumbnail.jpg',
+    thumbnail: '/showcase/car.jpg',
     url: '/showcase/car-accessories/',
     status: 'coming-soon',
     version: '1.0',
@@ -107,7 +107,7 @@ export const showcaseTemplates: ShowcaseTemplate[] = [
     category: 'Food & Bakery',
     description:
       'A delightful website for bakeries with cake galleries, custom orders and location.',
-    thumbnail: '/showcase/bakery/thumbnail.jpg',
+    thumbnail: '/showcase/bakery.jpg',
     url: '/showcase/bakery/',
     status: 'coming-soon',
     version: '1.0',
@@ -126,7 +126,7 @@ export const showcaseTemplates: ShowcaseTemplate[] = [
     category: 'Fashion & Retail',
     description:
       'A stylish website for clothing stores with collections, new arrivals and offers.',
-    thumbnail: '/showcase/clothing/thumbnail.jpg',
+    thumbnail: '/showcase/clothing.jpg',
     url: '/showcase/clothing/',
     status: 'coming-soon',
     version: '1.0',
@@ -145,7 +145,7 @@ export const showcaseTemplates: ShowcaseTemplate[] = [
     category: 'Fitness & Wellness',
     description:
       'An energetic website for gyms with trainers, facilities, membership plans and trial booking.',
-    thumbnail: '/showcase/gym/thumbnail.jpg',
+    thumbnail: '/showcase/gym.jpg',
     url: '/showcase/gym/',
     status: 'coming-soon',
     version: '1.0',
@@ -165,7 +165,7 @@ export const showcaseTemplates: ShowcaseTemplate[] = [
     category: 'Beauty & Salon',
     description:
       'An elegant website for salons and makeup studios with services, packages and appointment booking.',
-    thumbnail: '/showcase/salon/thumbnail.jpg',
+    thumbnail: '/showcase/makeup.jpg',
     url: '/showcase/salon/',
     status: 'coming-soon',
     version: '1.0',
@@ -185,7 +185,7 @@ export const showcaseTemplates: ShowcaseTemplate[] = [
     category: 'Hospitality',
     description:
       'A premium website for hotels and lodges with rooms, amenities, pricing and room booking.',
-    thumbnail: '/showcase/hotel/thumbnail.jpg',
+    thumbnail: '/showcase/hotel.jpg',
     url: '/showcase/hotel/',
     status: 'coming-soon',
     version: '1.0',

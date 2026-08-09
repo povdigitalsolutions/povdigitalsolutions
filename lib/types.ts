@@ -44,6 +44,9 @@ export interface TeamMember {
   role: string;
   description: string;
   initials: string;
+  image: string;
+  linkedin?: string;
+  instagram?: string;
 }
 
 export interface FaqItem {

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Phone, Mail, MessageCircle, MapPin, Instagram, Linkedin, Facebook } from 'lucide-react';
 import { siteConfig, whatsappLink, emailLink } from '@/lib/site-config';
 
@@ -18,16 +19,16 @@ export function Footer() {
       <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-1">
-            <Link href="/" className="group flex items-center gap-2.5">
-              <div className="relative flex h-9 w-9 items-center justify-center rounded-lg bg-navy-gradient shadow-lg shadow-brand-darker/50 transition-transform group-hover:scale-105">
-                <span className="font-display text-sm font-extrabold text-white">P</span>
-                <div className="absolute -right-0.5 -top-0.5 h-1.5 w-1.5 rounded-full bg-copper" />
-              </div>
-              <div className="flex flex-col leading-none">
-                <span className="font-display text-base font-bold text-white">POV Digital</span>
-                <span className="text-[0.625rem] font-semibold uppercase tracking-wider text-white/50">
-                  Solutions
-                </span>
+            <Link href="/" className="group inline-flex items-center">
+              <div className="relative h-40 w-80 transition-transform duration-300 group-hover:scale-[1.03]">
+                <Image
+                  src="/brand/POV_logo.png"
+                  alt="POV Digital Solutions"
+                  fill
+                  sizes="350px"
+                  className="object-contain object-left"
+                  priority
+                />
               </div>
             </Link>
             <p className="mt-4 text-sm text-white/60">
