@@ -40,6 +40,8 @@ export function ScrollCard({ children, className = '', delay = 0, colorClass }: 
     'navy': 'from-navy-light/20 to-brand-darker/10 border-navy/30',
     'emerald': 'from-emerald-50 to-green-50 border-emerald/20',
     'violet': 'from-violet-50 to-purple-50 border-violet/20',
+    'sky': 'from-sky-50 to-cyan-50 border-sky/20',
+    'rose': 'from-rose-50 to-pink-50 border-rose/20',
   };
 
   const bgGradient = colorGradients[colorClass || 'blue'] || colorGradients.blue;
@@ -53,7 +55,7 @@ export function ScrollCard({ children, className = '', delay = 0, colorClass }: 
       transition={{ duration: 0.6, delay: delay * 0.1 }}
     >
       <motion.div
-        className={`rounded-xl border-2 bg-gradient-to-br ${bgGradient} p-6 h-full min-w-[280px] sm:min-w-[320px] ${className}`}
+        className={`rounded-xl border-2 bg-gradient-to-br ${bgGradient} p-6 h-full min-w-[280px] sm:min-w-[320px] shadow-lg hover:shadow-2xl transition-all ${className}`}
         whileHover={prefersReduced ? {} : { scale: 1.03, y: -8 }}
         transition={{ duration: 0.3 }}
       >

@@ -211,6 +211,21 @@
     @apply overflow-x-auto pb-4 -mx-4 px-4 snap-x snap-mandatory scroll-smooth;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--brand) / 0.3) transparent;
+  }
+  .scroll-cards-container::-webkit-scrollbar {
+    height: 6px;
+  }
+  .scroll-cards-container::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scroll-cards-container::-webkit-scrollbar-thumb {
+    background: hsl(var(--brand) / 0.3);
+    border-radius: 3px;
+  }
+  .scroll-cards-container::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--brand) / 0.5);
   }
   .scroll-card {
     @apply flex-shrink-0 snap-start;

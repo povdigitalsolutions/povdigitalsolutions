@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import Image from 'next/image';
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -23,15 +22,15 @@ export function Navbar() {
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="relative h-10 w-10 sm:h-12 sm:w-12 flex items-center justify-center">
-              <div className="absolute inset-0 bg-gradient-to-br from-brand via-copper to-brand rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="relative bg-gradient-to-br from-brand via-brand-bright to-copper text-white font-display font-bold text-lg sm:text-xl flex items-center justify-center rounded-lg h-10 w-10 sm:h-12 sm:w-12">
-                POV
+            <div className="relative h-11 w-11 sm:h-13 sm:w-13 flex items-center justify-center">
+              <div className="absolute inset-0 bg-gradient-to-br from-brand via-copper to-brand rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm" />
+              <div className="relative bg-gradient-to-br from-brand via-brand-bright to-copper text-white font-display font-bold text-xl sm:text-2xl flex items-center justify-center rounded-lg h-11 w-11 sm:h-13 sm:w-13 shadow-lg">
+                P
               </div>
             </div>
             <div className="hidden sm:block">
-              <div className="font-display font-bold text-ink text-sm leading-tight">POV</div>
-              <div className="text-xs text-copper-light font-semibold">Digital</div>
+              <div className="font-display font-bold text-ink text-base leading-tight">POV</div>
+              <div className="text-xs text-copper-light font-semibold tracking-wider">DIGITAL</div>
             </div>
           </Link>
 
@@ -46,7 +45,7 @@ export function Navbar() {
             <Link href="/about" className="text-sm font-medium text-ink hover:text-brand transition-colors">
               About
             </Link>
-            <Link href="/contact" className="text-sm font-medium text-white bg-gradient-to-r from-brand to-copper-dark px-4 py-2 rounded-lg hover:shadow-lg hover:shadow-brand/30 transition-all">
+            <Link href="/contact" className="text-sm font-medium text-white bg-gradient-to-r from-brand to-copper-dark px-4 py-2 rounded-lg hover:shadow-lg hover:shadow-brand/30 transition-all hover:scale-105">
               Contact
             </Link>
           </div>
