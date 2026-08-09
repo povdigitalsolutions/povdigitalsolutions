@@ -1,0 +1,335 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Deep Navy / Dark Blue — primary text, dark sections, headings */
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    /* Royal / Electric Blue — buttons, links, interactive elements */
+    --primary: 217 91% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 26% 95%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 220 20% 94%;
+    --muted-foreground: 220 10% 42%;
+    --accent: 217 91% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 16% 88%;
+    --input: 220 16% 88%;
+    --ring: 217 91% 50%;
+    --radius: 0.75rem;
+
+    --chart-1: 217 91% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 28 75% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    /* Brand palette inspired by the logo */
+    --brand: 217 91% 50%;           /* Royal blue */
+    --brand-bright: 213 100% 58%;   /* Electric blue for glows */
+    --brand-dark: 224 76% 20%;      /* Deep navy */
+    --brand-darker: 225 80% 12%;    /* Near-black navy */
+    --brand-light: 214 100% 96%;    /* Very light blue */
+    --copper: 28 65% 48%;           /* Copper/bronze accent */
+    --copper-light: 27 80% 62%;     /* Light copper */
+    --copper-dark: 22 70% 35%;      /* Dark copper */
+    --ink: 222 47% 11%;             /* Dark text */
+    --navy: 224 76% 20%;            /* Navy section bg */
+    --navy-light: 225 60% 28%;      /* Lighter navy */
+    --charcoal: 220 20% 18%;        /* Charcoal / dark blue-grey */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .container-px {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+  .section-py {
+    @apply py-16 sm:py-20 lg:py-28;
+  }
+
+  /* Gradient text helpers */
+  .text-gradient {
+    @apply bg-gradient-to-r from-brand via-brand to-brand-dark bg-clip-text text-transparent;
+  }
+  .text-gradient-copper {
+    @apply bg-gradient-to-r from-copper-light via-copper to-copper-dark bg-clip-text text-transparent;
+  }
+  .text-gradient-hero {
+    background: linear-gradient(135deg, hsl(var(--brand-bright)) 0%, hsl(217 91% 65%) 50%, hsl(var(--copper-light)) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Glass surfaces */
+  .glass {
+    @apply bg-white/70 backdrop-blur-md border border-white/60;
+  }
+  .glass-nav {
+    @apply bg-white/80 backdrop-blur-xl border-b border-slate-200/60;
+  }
+  .glass-dark {
+    background: hsl(var(--brand-darker) / 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Card hover effects */
+  .card-hover {
+    transition: transform 300ms ease, box-shadow 300ms ease, border-color 300ms ease;
+  }
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px hsl(var(--brand) / 0.10);
+  }
+  .card-premium {
+    transition: transform 400ms cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 400ms ease, border-color 400ms ease;
+  }
+  .card-premium:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 48px hsl(var(--brand) / 0.18), 0 0 0 1px hsl(var(--brand) / 0.1);
+    border-color: hsl(var(--brand) / 0.35);
+  }
+
+  /* Dark card variant for dark sections */
+  .card-dark {
+    background: hsl(var(--brand-darker) / 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: transform 400ms cubic-bezier(0.25, 0.1, 0.25, 1), border-color 400ms ease, box-shadow 400ms ease;
+  }
+  .card-dark:hover {
+    transform: translateY(-6px);
+    border-color: hsl(var(--copper) / 0.3);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3), 0 0 0 1px hsl(var(--copper) / 0.1);
+  }
+
+  /* Grid patterns */
+  .grid-glow {
+    background-image: radial-gradient(circle at 1px 1px, hsl(var(--border)) 1px, transparent 0);
+    background-size: 32px 32px;
+  }
+  .grid-glow-light {
+    background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.08) 1px, transparent 0);
+    background-size: 32px 32px;
+  }
+  .grid-lines {
+    background-image:
+      linear-gradient(to right, rgba(255,255,255,0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+  .grid-lines-dark {
+    background-image:
+      linear-gradient(to right, hsl(var(--border) / 0.5) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--border) / 0.5) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  /* Accent lines */
+  .copper-line {
+    @apply h-px w-12 bg-gradient-to-r from-copper to-copper-light rounded-full;
+  }
+
+  /* Button shine effect */
+  .btn-shine {
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-shine::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
+  }
+  .btn-shine:hover::after {
+    left: 100%;
+  }
+
+  /* Glow utility */
+  .glow-brand {
+    box-shadow: 0 0 40px hsl(var(--brand) / 0.3);
+  }
+  .glow-copper {
+    box-shadow: 0 0 24px hsl(var(--copper) / 0.25);
+  }
+
+  /* Section surfaces */
+  .surface-dark {
+    background: hsl(var(--brand-darker));
+    color: hsl(0 0% 100%);
+  }
+  .surface-navy {
+    background: linear-gradient(180deg, hsl(var(--brand-darker)) 0%, hsl(var(--navy)) 100%);
+    color: hsl(0 0% 100%);
+  }
+  .surface-light {
+    background: hsl(var(--background));
+  }
+  .surface-mesh {
+    background:
+      radial-gradient(ellipse 80% 50% at 50% 0%, hsl(var(--brand) / 0.06) 0%, transparent 50%),
+      radial-gradient(ellipse 60% 40% at 80% 100%, hsl(var(--copper) / 0.04) 0%, transparent 50%),
+      hsl(var(--background));
+  }
+}
+
+@layer utilities {
+  .animate-fade-up {
+    animation: fadeUp 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+  }
+  .animate-fade-in {
+    animation: fadeIn 1s ease-out forwards;
+  }
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  .animate-float-slow {
+    animation: float 9s ease-in-out infinite;
+  }
+  .animate-float-reverse {
+    animation: floatReverse 7s ease-in-out infinite;
+  }
+  .animate-pulse-slow {
+    animation: pulseSlow 4s ease-in-out infinite;
+  }
+  .animate-wave {
+    animation: waveMove 12s ease-in-out infinite;
+  }
+  .animate-wave-slow {
+    animation: waveMove 18s ease-in-out infinite;
+  }
+  .animate-wave-reverse {
+    animation: waveMoveReverse 15s ease-in-out infinite;
+  }
+  .animate-glow {
+    animation: glowPulse 5s ease-in-out infinite;
+  }
+  .animate-glow-shift {
+    animation: glowShift 8s ease-in-out infinite;
+  }
+  .animate-drift {
+    animation: drift 20s ease-in-out infinite;
+  }
+  .animate-drift-reverse {
+    animation: driftReverse 25s ease-in-out infinite;
+  }
+  .animate-spin-slow {
+    animation: spinSlow 30s linear infinite;
+  }
+  .animate-dash {
+    stroke-dasharray: 8 8;
+    animation: dashMove 1.5s linear infinite;
+  }
+  .animate-node-pulse {
+    animation: nodePulse 3s ease-in-out infinite;
+  }
+  .delay-100 { animation-delay: 0.1s; }
+  .delay-200 { animation-delay: 0.2s; }
+  .delay-300 { animation-delay: 0.3s; }
+  .delay-500 { animation-delay: 0.5s; }
+  .delay-700 { animation-delay: 0.7s; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+@keyframes floatReverse {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+@keyframes pulseSlow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+@keyframes waveMove {
+  0%, 100% { transform: translateX(0) translateY(0); }
+  50% { transform: translateX(-3%) translateY(-2%); }
+}
+@keyframes waveMoveReverse {
+  0%, 100% { transform: translateX(0) translateY(0); }
+  50% { transform: translateX(3%) translateY(2%); }
+}
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.3; filter: blur(40px); }
+  50% { opacity: 0.6; filter: blur(50px); }
+}
+@keyframes glowShift {
+  0%, 100% { opacity: 0.3; transform: translate(0, 0) scale(1); }
+  33% { opacity: 0.5; transform: translate(30px, -20px) scale(1.1); }
+  66% { opacity: 0.4; transform: translate(-20px, 15px) scale(0.95); }
+}
+@keyframes drift {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(20px, -15px); }
+  50% { transform: translate(-10px, 10px); }
+  75% { transform: translate(15px, 5px); }
+}
+@keyframes driftReverse {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(-15px, 10px); }
+  50% { transform: translate(10px, -10px); }
+  75% { transform: translate(-5px, -15px); }
+}
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes dashMove {
+  to { stroke-dashoffset: -16; }
+}
+@keyframes nodePulse {
+  0%, 100% { opacity: 0.5; r: 3; }
+  50% { opacity: 1; r: 5; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
