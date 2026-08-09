@@ -208,7 +208,7 @@
 
   /* Mobile horizontal scroll cards */
   .scroll-cards-container {
-    @apply overflow-x-auto pb-4 -mx-4 px-4 snap-x snap-mandatory scroll-smooth;
+    @apply overflow-x-auto pb-4 -mx-4 px-4 snap-x snap-mandatory scroll-smooth flex gap-4;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: thin;
