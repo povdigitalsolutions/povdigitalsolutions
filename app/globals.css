@@ -205,6 +205,16 @@
       radial-gradient(ellipse 60% 40% at 80% 100%, hsl(var(--copper) / 0.04) 0%, transparent 50%),
       hsl(var(--background));
   }
+
+  /* Mobile horizontal scroll cards */
+  .scroll-cards-container {
+    @apply overflow-x-auto pb-4 -mx-4 px-4 snap-x snap-mandatory scroll-smooth;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+  .scroll-card {
+    @apply flex-shrink-0 snap-start;
+  }
 }
 
 @layer utilities {
@@ -256,6 +266,18 @@
   }
   .animate-node-pulse {
     animation: nodePulse 3s ease-in-out infinite;
+  }
+  .animate-slide-right {
+    animation: slideRight 8s linear infinite;
+  }
+  .animate-slide-left {
+    animation: slideLeft 8s linear infinite;
+  }
+  .animate-slide-up {
+    animation: slideUp 6s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+  }
+  .animate-scale-pulse {
+    animation: scalePulse 3s ease-in-out infinite;
   }
   .delay-100 { animation-delay: 0.1s; }
   .delay-200 { animation-delay: 0.2s; }
@@ -323,6 +345,22 @@
 @keyframes nodePulse {
   0%, 100% { opacity: 0.5; r: 3; }
   50% { opacity: 1; r: 5; }
+}
+@keyframes slideRight {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+@keyframes slideLeft {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+@keyframes slideUp {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+@keyframes scalePulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.8; }
 }
 
 @media (prefers-reduced-motion: reduce) {

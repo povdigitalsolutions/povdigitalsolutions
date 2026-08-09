@@ -39,11 +39,17 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     title: `${siteConfig.name} — ${siteConfig.tagline}`,
     description: siteConfig.description,
+    images: [{
+      url: '/og-image.png',
+      width: 1200,
+      height: 630,
+    }],
   },
   twitter: {
     card: 'summary_large_image',
     title: `${siteConfig.name} — ${siteConfig.tagline}`,
     description: siteConfig.description,
+    images: ['/og-image.png'],
   },
   robots: {
     index: true,
@@ -51,6 +57,10 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: 'https://povdigitalsolutions.com',
+  },
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
   },
 };
 
@@ -61,6 +71,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${display.variable}`}>
+      <head>
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+      </head>
       <body className="font-sans">
         <Navbar />
         <main className="min-h-screen">{children}</main>
