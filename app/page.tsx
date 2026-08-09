@@ -55,7 +55,7 @@ export default function HomePage() {
             <span className="text-gradient-hero">Digital Business.</span>
           </h1>
           <p
-            className="mt-6 max-w-2xl animate-fade-up text-lg text-white/85 drop-shadow-[0_1px_10px_rgba(0,0,0,0.4)] sm:text-xl"
+            className="mt-6 max-w-2xl animate-fade-up text-lg font-medium text-white/55 drop-shadow-[0_2px_12px_rgba(0,0,0,0.75)] sm:text-xl"
             style={{ animationDelay: '0.2s' }}
           >
             We build affordable websites, booking systems, ERP applications and custom

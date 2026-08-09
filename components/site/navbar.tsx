@@ -55,8 +55,10 @@ export function Navbar() {
                   src="/brand/POV_logo-transparent.png"
                   alt="POV Digital Solutions"
                   fill
-                  sizes="190px"
-                  className="relative scale-[1.75] object-contain object-left transition-transform duration-500 group-hover:scale-[1.80]"
+                  sizes="(max-width: 639px) 115px, 190px"
+                  className="object-contain object-left transition-transform duration-500
+                    scale-[1.15] sm:scale-[1.35] lg:scale-[1.75]
+                    group-hover:scale-[1.2] sm:group-hover:scale-[1.4] lg:group-hover:scale-[1.80]"
                   priority
                 />
               </div>
@@ -125,18 +127,16 @@ export function Navbar() {
             <div className="flex h-full flex-col bg-gradient-to-b from-white to-brand-light/30">
               <div className="flex items-center justify-between border-b px-5 py-4">
                 <SheetTitle className="flex items-center gap-3">
-                  <div className="relative h-12 w-[150px]">
-                    <div className="relative h-12 w-[150px]"> 
-                      <Image
-                        src="/brand/POV_logo_transparent.png"
-                        alt="POV Digital Solutions"
-                        fill
-                        sizes="150px"
-                        className="object-contain"
-                        priority
-                      />
-                    </div>
-                  </div>
+                 <div className="relative h-10 w-[115px] sm:h-11 sm:w-[135px]">
+                  <Image
+                    src="/brand/POV_logo-transparent.png"
+                    alt="POV Digital Solutions"
+                    fill
+                    sizes="(max-width: 640px) 115px, 135px"
+                    className="object-contain object-left"
+                    priority
+                  />
+                </div>
                 </SheetTitle>
                 <SheetClose asChild>
                   <Button variant="ghost" size="icon" aria-label="Close menu">
