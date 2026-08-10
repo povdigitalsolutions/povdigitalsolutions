@@ -88,8 +88,8 @@ export const showcaseTemplates: ShowcaseTemplate[] = [
     description:
       'A dynamic website for car accessory shops with products, services and project galleries.',
     thumbnail: '/showcase/car.jpg',
-    url: '/showcase/car-accessories/',
-    status: 'coming-soon',
+    url: 'https://royalcaraccessories.lovable.app/',
+    status: 'published',
     version: '1.0',
     tags: ['automotive', 'accessories', 'gallery'],
     features: [
