@@ -88,7 +88,7 @@ export const showcaseTemplates: ShowcaseTemplate[] = [
     description:
       'A dynamic website for car accessory shops with products, services and project galleries.',
     thumbnail: '/showcase/car.jpg',
-    url: 'https://royalcaraccessories.lovable.app/',
+    url: 'https://vakratundcaraccessesories.vercel.app/',
     status: 'published',
     version: '1.0',
     tags: ['automotive', 'accessories', 'gallery'],
@@ -108,8 +108,8 @@ export const showcaseTemplates: ShowcaseTemplate[] = [
     description:
       'A delightful website for bakeries with cake galleries, custom orders and location.',
     thumbnail: '/showcase/bakery.jpg',
-    url: '/showcase/bakery/',
-    status: 'coming-soon',
+    url: 'https://bhumis-cake-craft.base44.app',
+    status: 'published',
     version: '1.0',
     tags: ['bakery', 'cakes', 'food'],
     features: [
@@ -146,8 +146,8 @@ export const showcaseTemplates: ShowcaseTemplate[] = [
     description:
       'An energetic website for gyms with trainers, facilities, membership plans and trial booking.',
     thumbnail: '/showcase/gym.jpg',
-    url: '/showcase/gym/',
-    status: 'coming-soon',
+    url: 'https://gymfitness-two.vercel.app/',
+    status: 'published',
     version: '1.0',
     tags: ['fitness', 'gym', 'membership'],
     features: [
@@ -186,8 +186,8 @@ export const showcaseTemplates: ShowcaseTemplate[] = [
     description:
       'A premium website for hotels and lodges with rooms, amenities, pricing and room booking.',
     thumbnail: '/showcase/hotel.jpg',
-    url: '/showcase/hotel/',
-    status: 'coming-soon',
+    url: 'https://caf-demo-website-th3l.bolt.host/',
+    status: 'published',
     version: '1.0',
     tags: ['hotel', 'lodge', 'booking', 'hospitality'],
     features: [
