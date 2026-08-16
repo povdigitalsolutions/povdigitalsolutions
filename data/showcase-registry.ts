@@ -48,8 +48,8 @@ export const showcaseTemplates: ShowcaseTemplate[] = [
     description:
       'A premium product showcase website for furniture stores and interior businesses.',
     thumbnail: '/showcase/furniture.jpg',
-    url: '/showcase/furniture/',
-    status: 'coming-soon',
+    url: 'https://dwell-demo.lovable.app/',
+    status: 'published',
     version: '1.0',
     tags: ['furniture', 'product showcase', 'gallery'],
     features: [
